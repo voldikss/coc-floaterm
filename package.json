@@ -1,0 +1,58 @@
+{
+  "name": "coc-floaterm",
+  "version": "0.0.1",
+  "description": "CocList support for the floaterm",
+  "main": "lib/index.js",
+  "publisher": "voldikss",
+  "keywords": [
+    "coc.nvim",
+    "floaterm"
+  ],
+  "engines": {
+    "coc": "^0.0.74"
+  },
+  "scripts": {
+    "clean": "rimraf lib",
+    "watch": "webpack --watch",
+    "build": "webpack",
+    "prepare": "npx npm-run-all clean build"
+  },
+  "activationEvents": [
+    "*"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "title": "FloatermNew",
+        "command": "new"
+      },
+      {
+        "title": "FloatermNext",
+        "command": "next"
+      },
+      {
+        "title": "FloatermPrev",
+        "command": "prev"
+      },
+      {
+        "title": "FloatermToggle",
+        "command": "toggle"
+      }
+    ]
+  },
+  "author": "dyzplus@gmail.com",
+  "license": "MIT",
+  "devDependencies": {
+    "@voldikss/tsconfig": "^1.0.0",
+    "@voldikss/tslint-config": "^1.0.6",
+    "@types/node": "^13.1.4",
+    "coc.nvim": "^0.0.74",
+    "rimraf": "^3.0.0",
+    "ts-loader": "^6.2.1",
+    "tslint": "^5.20.1",
+    "typescript": "^3.7.4",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  },
+  "dependencies": {}
+}
