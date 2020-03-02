@@ -4,7 +4,7 @@ import {
   listManager,
   workspace
 } from 'coc.nvim'
-import Floaterm from './lists/floaterm'
+import Floaterm from './floaterm'
 
 export async function activate(context: ExtensionContext): Promise<void> {
   const { nvim } = workspace
