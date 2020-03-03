@@ -36,6 +36,12 @@ export default class Floaterm extends BasicList {
 
   public async loadItems(_context: ListContext): Promise<ListItem[]> {
     const list: ListItem[] = []
+    const has_floaterm = await this.nvim.eval('exists("*floaterm#buflist#gather")')
+    if (has_floaterm.valueOf() == 0) {
+      workspace.showMessage('Please install https://github.com/voldikss/vim-floaterm', 'error')
+      return []
+    }
+
     const buffers = await this.nvim.call('floaterm#buflist#gather')
     for (const bufnr of buffers) {
       const bufinfo = await this.nvim.call('getbufinfo', bufnr)
