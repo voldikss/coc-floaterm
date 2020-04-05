@@ -17,7 +17,7 @@ export default class Floaterm extends BasicList {
     super(nvim)
 
     this.addAction('open', async (item: ListItem) => {
-      await this.nvim.call('floaterm#terminal#open', item.data)
+      await this.nvim.call('floaterm#terminal#open_existing', item.data)
     })
 
     this.addAction('preview', async (item: ListItem, context) => {
@@ -38,7 +38,6 @@ export default class Floaterm extends BasicList {
     const list: ListItem[] = []
     const loaded_floaterm = await this.nvim.eval('exists("*floaterm#buflist#gather")')
     if (loaded_floaterm.valueOf() == 0) return []
-
 
     const buffers = await this.nvim.call('floaterm#buflist#gather')
     for (const bufnr of buffers) {

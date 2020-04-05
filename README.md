@@ -17,7 +17,7 @@ CocList and CocCommand support for [vim-floaterm](https://github.com/voldikss/vi
 
 ## Commands
 
-- `:CocCommand floaterm.new`
+- `:CocCommand floaterm.new [cmd]`
 
 - `:CocCommand floaterm.next`
 
