@@ -43,9 +43,9 @@ export default class Floaterm extends BasicList {
     for (const bufnr of buffers) {
       const bufinfo = await this.nvim.call('getbufinfo', bufnr)
       const bufname = bufinfo[0]['name']
-      const term_title = await this.nvim.call('getbufvar', [bufnr, 'term_title'])
+      const term_title: string = await this.nvim.call('getbufvar', [bufnr, 'term_title'])
       list.push({
-        label: `${bufnr}    ${bufname}    ${term_title}`,
+        label: bufnr.toString().padEnd(5) + bufname.toString().padEnd(40) + term_title,
         data: bufnr
       })
     }
