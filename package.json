@@ -1,6 +1,6 @@
 {
   "name": "coc-floaterm",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "CocList support for the floaterm",
   "main": "lib/index.js",
   "publisher": "voldikss",
