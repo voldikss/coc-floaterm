@@ -12,7 +12,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
 
   subscriptions.push(
     commands.registerCommand(
-      'floaterm.new', shell => nvim.call('floaterm#new', shell)
+      'floaterm.new', opts => nvim.call('floaterm#new', opts)
     )
   )
 
@@ -30,7 +30,19 @@ export async function activate(context: ExtensionContext): Promise<void> {
 
   subscriptions.push(
     commands.registerCommand(
-      'floaterm.toggle', () => nvim.call('floaterm#toggle')
+      'floaterm.toggle', name => nvim.call('floaterm#toggle', name)
+    )
+  )
+
+  subscriptions.push(
+    commands.registerCommand(
+      'floaterm.update', opts => nvim.call('floaterm#update', opts)
+    )
+  )
+
+  subscriptions.push(
+    commands.registerCommand(
+      'floaterm.send', name => nvim.call('floaterm#send', name)
     )
   )
 
