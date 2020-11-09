@@ -6,6 +6,7 @@ import {
   Neovim,
   BasicList
 } from 'coc.nvim'
+import colors from 'colors/safe'
 
 export default class Floaterm extends BasicList {
   public readonly name = 'floaterm'
@@ -45,22 +46,10 @@ export default class Floaterm extends BasicList {
       const bufname = bufinfo[0]['name']
       const term_title: string = await this.nvim.call('getbufvar', [bufnr, 'term_title'])
       list.push({
-        label: bufnr.toString().padEnd(5) + bufname.toString().padEnd(40) + term_title,
+        label: `${colors.cyan(bufnr.toString())}  ${colors.yellow(bufname.toString())}  ${colors.gray(term_title)}`,
         data: bufnr
       })
     }
     return list
-  }
-
-  public doHighlight(): void {
-    let { nvim } = workspace
-    nvim.pauseNotification()
-    nvim.command('syntax match FloatermBufnr /\\v^.*\\v%4v/', true)
-    nvim.command('hi def link FloatermBufnr Constant', true)
-    nvim.command('syn match FloatermInfo /\\v%4v.*$/', true)
-    nvim.command('hi def link FloatermInfo Statement', true)
-    nvim.resumeNotification().catch(_e => {
-      // nop
-    })
   }
 }
