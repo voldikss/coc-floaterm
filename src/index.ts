@@ -2,13 +2,29 @@ import {
   commands,
   ExtensionContext,
   listManager,
-  workspace
+  workspace,
+  languages
 } from 'coc.nvim'
 import Floaterm from './floaterm'
+import { FloatermCompletionProvider } from './completion'
 
 export async function activate(context: ExtensionContext): Promise<void> {
   const { nvim } = workspace
   const { subscriptions } = context
+  const config = workspace.getConfiguration('floaterm')
+
+  if (config.get('enableCompletion')) {
+    subscriptions.push(
+      languages.registerCompletionItemProvider(
+        'coc-floaterm',
+        config.get('shortcut', 'floaterm'),
+        null,
+        new FloatermCompletionProvider(nvim, config.get('patterns')),
+        [],
+        config.get<number>('priority', 5)
+      )
+    )
+  }
 
   subscriptions.push(
     commands.registerCommand(

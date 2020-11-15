@@ -21,6 +21,29 @@
     "*"
   ],
   "contributes": {
+    "configuration": {
+      "type": "object",
+      "properties": {
+        "floaterm.enableCompletion": {
+          "type": "boolean",
+          "default": true
+        },
+        "floaterm.shortcut": {
+          "type": "string",
+          "default": "floaterm"
+        },
+        "floaterm.priority": {
+          "type": "number",
+          "default": 5
+        },
+        "floaterm.patterns": {
+          "type": "object",
+          "default": {
+            "*": []
+          }
+        }
+      }
+    },
     "commands": [
       {
         "title": "FloatermNew",
