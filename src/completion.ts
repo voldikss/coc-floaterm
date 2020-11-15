@@ -28,7 +28,6 @@ export class FloatermCompletionProvider implements CompletionItemProvider {
     if (!wordRange) return []
 
     const word = document.getText(wordRange)
-    workspace.showMessage(word)
     const linePre = document.getText(Range.create(Position.create(position.line, 0), position))
     if (!patterns.length || patterns.some(p => new RegExp(p).test(linePre))) {
       return this.gatherCandidates(word)
