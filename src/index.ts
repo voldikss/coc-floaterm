@@ -17,11 +17,11 @@ export async function activate(context: ExtensionContext): Promise<void> {
     subscriptions.push(
       languages.registerCompletionItemProvider(
         'coc-floaterm',
-        config.get('shortcut', 'floaterm'),
+        config.get('shortcut'),
         null,
         new FloatermCompletionProvider(nvim, config.get('patterns')),
         [],
-        config.get<number>('priority', 5)
+        config.get<number>('priority')
       )
     )
   }

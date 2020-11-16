@@ -30,7 +30,7 @@
       "properties": {
         "floaterm.enableCompletion": {
           "type": "boolean",
-          "default": true
+          "default": false
         },
         "floaterm.shortcut": {
           "type": "string",

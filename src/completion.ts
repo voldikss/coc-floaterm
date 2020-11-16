@@ -16,6 +16,9 @@ export class FloatermCompletionProvider implements CompletionItemProvider {
   constructor(private nvim: Neovim, private patterns) { }
 
   public async provideCompletionItems(document: TextDocument, position: Position): Promise<CompletionItem[]> {
+    const loaded_floaterm = await this.nvim.eval('exists("*floaterm#buflist#gather")')
+    if (loaded_floaterm.valueOf() == 0) return []
+
     const { languageId, uri } = document
 
     const patterns = this.patterns['*'] || this.patterns[languageId]

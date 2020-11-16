@@ -24,7 +24,7 @@ coc.nvim extension for [vim-floaterm](https://github.com/voldikss/vim-floaterm)
 ## Configurations
 
 - `floaterm.enableCompletion`:
-  default: `true`
+  default: `true` (Update: `false` now because this feature is supported from within vim-floaterm...)
 
 - `floaterm.shortcut`:
   default: `"floaterm"`
