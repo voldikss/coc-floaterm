@@ -1,4 +1,5 @@
 import {
+  workspace,
   ListAction,
   ListContext,
   ListItem,
@@ -22,8 +23,9 @@ export default class Floaterm extends BasicList {
 
     this.addAction('preview', async (item: ListItem, context) => {
       const bufnr = item.data
-      const lnum = await this.nvim.eval(`getbufinfo(${bufnr})[0]['lnum']`)
-      let lines: string[] = await this.nvim.call('getbufline', [bufnr, Math.max(Number(lnum) - 10, 0), '$'])
+      const bufinfo = await this.nvim.call('getbufinfo', bufnr)
+      const lnum = bufinfo[0]['lnum']
+      let lines: string[] = await this.nvim.call('getbufline', [bufnr, Math.max(lnum - 10, 0), '$'])
       lines = lines.slice(Math.max(lines.length - 10, 0))
       await this.preview({
         sketch: true,

@@ -1,6 +1,6 @@
 {
   "name": "coc-floaterm",
-  "version": "0.1.2",
+  "version": "0.0.7",
   "description": "CocList support for the floaterm",
   "main": "lib/index.js",
   "publisher": "voldikss",
@@ -11,10 +11,6 @@
   "engines": {
     "coc": "^0.0.74"
   },
-  "repository": {
-    "url": "https://github.com/voldikss/coc-browser"
-  },
-  "homepage": "https://github.com/voldikss/coc-browser",
   "scripts": {
     "clean": "rimraf lib",
     "watch": "webpack --watch",
@@ -25,29 +21,6 @@
     "*"
   ],
   "contributes": {
-    "configuration": {
-      "type": "object",
-      "properties": {
-        "floaterm.enableCompletion": {
-          "type": "boolean",
-          "default": false
-        },
-        "floaterm.shortcut": {
-          "type": "string",
-          "default": "floaterm"
-        },
-        "floaterm.priority": {
-          "type": "number",
-          "default": 5
-        },
-        "floaterm.patterns": {
-          "type": "object",
-          "default": {
-            "*": []
-          }
-        }
-      }
-    },
     "commands": [
       {
         "title": "FloatermNew",
