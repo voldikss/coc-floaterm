@@ -1,5 +1,8 @@
 # coc-floaterm
 
+![publish](https://github.com/voldikss/coc-floaterm/workflows/publish/badge.svg)
+[![npm version](https://badge.fury.io/js/coc-floaterm.svg)](https://badge.fury.io/js/coc-floaterm)
+
 CocList and CocCommand support for [vim-floaterm](https://github.com/voldikss/vim-floaterm)
 
 ![](https://user-images.githubusercontent.com/20282795/75005925-fcc27f80-54aa-11ea-832e-59ea5b02fc04.gif)

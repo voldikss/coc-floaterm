@@ -1,7 +1,5 @@
 import {
-  workspace,
   ListAction,
-  ListContext,
   ListItem,
   Neovim,
   BasicList
@@ -35,7 +33,7 @@ export default class Floaterm extends BasicList {
     })
   }
 
-  public async loadItems(_context: ListContext): Promise<ListItem[]> {
+  public async loadItems(): Promise<ListItem[]> {
     const list: ListItem[] = []
     const loaded_floaterm = await this.nvim.eval('exists("*floaterm#buflist#gather")')
     if (loaded_floaterm.valueOf() == 0) return []
