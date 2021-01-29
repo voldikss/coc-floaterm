@@ -21,10 +21,7 @@ export default class Floaterm extends BasicList {
 
     this.addAction('preview', async (item: ListItem, context) => {
       const bufnr = item.data
-      const bufinfo = await this.nvim.call('getbufinfo', bufnr)
-      const lnum = bufinfo[0]['lnum']
-      let lines: string[] = await this.nvim.call('getbufline', [bufnr, Math.max(lnum - 10, 0), '$'])
-      lines = lines.slice(Math.max(lines.length - 10, 0))
+      const lines: string[] = await this.nvim.call('floaterm#buffer#getlines', [bufnr, 10])
       await this.preview({
         sketch: true,
         filetype: 'floaterm_preview',
