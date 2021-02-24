@@ -21,11 +21,10 @@ export class FloatermCompletionProvider implements CompletionItemProvider {
         })
     })
 
-    return [...new Set(words)]
-      .map<CompletionItem>(word => ({
-        label: word,
-        kind: CompletionItemKind.Text,
-        insertText: word
-      }))
+    return words.map<CompletionItem>(word => ({
+      label: word,
+      kind: CompletionItemKind.Text,
+      insertText: word
+    }))
   }
 }
