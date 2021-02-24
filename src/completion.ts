@@ -22,7 +22,6 @@ export class FloatermCompletionProvider implements CompletionItemProvider {
     })
 
     return [...new Set(words)]
-      .filter(word => word.length >= 5 && word.length <= 20)
       .map<CompletionItem>(word => ({
         label: word,
         kind: CompletionItemKind.Text,
